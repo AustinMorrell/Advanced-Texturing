@@ -111,6 +111,8 @@ void Texture::draw()
 
 	loc = glGetUniformLocation(m_programID, "diffuse");
 	glUniform1i(loc, 0);
+	loc = glGetUniformLocation(m_programID, "normal");
+	glUniform1i(loc, 1);
 
 	// bind the light
 	vec3 light(sin(glfwGetTime()), 1, cos(glfwGetTime()));
@@ -182,7 +184,7 @@ void Texture::createTriQuad()
 	glVertexAttribPointer(2, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), ((char*)0) + 16);
 
 	glEnableVertexAttribArray(3);
-	glVertexAttribPointer(3, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), ((char*)0) + 32);
+	glVertexAttribPointer(3, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), ((char*)0) + 32);
 
 	glBindVertexArray(0);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
